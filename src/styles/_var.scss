@@ -1,0 +1,42 @@
+// 鲸打卡设计规范颜色
+$jdk-main-color: #3D7DFD;
+$jdk-success-color: #09D78E;
+$jdk-warning-color: #FFB01A;
+$jdk-danger-color: #FF5874;
+
+// 线条边框色和背景色
+$jdk-line-color: #E4E8F0;
+$jdk-background-color: #F8F9FA; // 弃用背景色->改用 #EFF1F7
+$app-background-color: #EFF1F7;
+
+// 文本颜色
+$jdk-primary-text-color: #354369;
+$jdk-regular-text-color: #AEB6C4;
+$jdk-secondary-text-color: #E4E8F0;
+$jdk-placeholder-text-color: #E4E8F0;
+
+// hover
+$jdk-hover-color: #f5f8ff;
+
+// 全局布局变量
+$layout-header-height: 60px; // header 高度
+$layout-aside-width: 200px; // menu-bar 展开宽度
+$layout-aside-collapse-width: 58px; // menu-bar 收缩宽度
+
+/*
+ * 改变element ui 主题色变量 参考 https://github.com/ElementUI/theme-chalk/blob/master/src/common/var.scss
+ */
+$--color-primary: $jdk-main-color;
+$--color-success: $jdk-success-color;
+$--color-warning: $jdk-warning-color;
+$--color-danger: $jdk-danger-color;
+$--color-info: #AEB6C4;
+$--color-text-regular: $jdk-primary-text-color;
+$--color-text-primary: #2F3A58;
+$--color-text-secondary: $jdk-regular-text-color;
+$--color-text-placeholder: $jdk-regular-text-color;
+$--border-color-base: $jdk-secondary-text-color;
+$--border-color-light: #EFF1F7;
+$--border-color-lighter: #EFF1F7;
+$--border-color-extra-light: #EFF1F7;
+$--background-color-base: #F8F9FA; // 弃用背景色->改用 #EFF1F7

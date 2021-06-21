@@ -1,0 +1,1389 @@
+/*
+ * Date: 2018-09-26 11:41:27
+ * Desc: 全局通用样式定义以jdk开头
+ */
+
+@import './mixin.scss';
+@import './_var.scss';
+
+// 自定义全局样式
+html,
+body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  background: $app-background-color;
+}
+
+.jdk-card {
+  @include common-card;
+}
+
+/* 让元素永远不会成为鼠标事件的target，让用户点击无效 */
+.jdk-disabled {
+  cursor: not-allowed;
+  pointer-events: none !important;
+  color: $jdk-secondary-text-color !important;
+}
+
+.jdk-disabled-event {
+  cursor: not-allowed;
+  pointer-events: none !important;
+}
+
+.jdk-not-allowed{
+  cursor: not-allowed;
+}
+
+.opacity {
+  opacity: 0.4 !important;
+}
+
+.jdk-images-show {
+  cursor: zoom-in;
+}
+
+.jdk-disabled-opacity {
+  @extend .jdk-disabled;
+  @extend .opacity;
+}
+
+.jdk-position-relative {
+  position: relative;
+}
+
+.jdk-position-absolute {
+  position: absolute;
+}
+
+.jdk-position-center {
+  @include center;
+}
+
+/* 模拟a链接样式类 */
+.jdk-link {
+  color: $jdk-main-color !important;
+  cursor: pointer;
+}
+
+/*清除全局a链接下划线*/
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+// 全局文字颜色类
+.jdk-text-color-main {
+  color: $jdk-primary-text-color;
+}
+
+/*全局字体主要颜色 （适用范围:?）*/
+.jdk-text-color-minor {
+  color: $jdk-regular-text-color;
+}
+
+/*全局字体次要颜色 （适用范围:?）*/
+.jdk-text-color-third {
+  color: $jdk-secondary-text-color !important;
+}
+
+// 全局字体样式类
+.jdk-main-title {
+  // 大标题
+  font-size: 20px;
+  font-weight: bolder;
+  color: $jdk-primary-text-color;
+}
+
+.jdk-minor-title {
+  // 标题
+  font-size: 18px;
+  font-weight: bolder;
+  color: $jdk-primary-text-color;
+}
+
+.jdk-third-title {
+  // 小标题
+  font-size: 16px;
+  font-weight: bolder;
+  color: $jdk-primary-text-color;
+}
+
+.jdk-bold-text {
+  // 主要文字加粗
+  font-size: 14px;
+  font-weight: bolder;
+  color: $jdk-primary-text-color;
+}
+
+.jdk-main-text {
+  // 主要文字
+  font-size: 14px;
+  color: $jdk-primary-text-color;
+}
+
+.jdk-pale-text {
+  // 淡色主要文字
+  font-size: 14px;
+  color: $jdk-regular-text-color;
+  font-weight: normal;
+}
+
+.jdk-minor-text {
+  // 次要文字
+  font-size: 13px;
+  color: $jdk-primary-text-color;
+}
+
+.jdk-pale-minor-text {
+  // 淡色次要文字
+  font-size: 13px;
+  color: $jdk-regular-text-color;
+}
+
+.jdk-third-text {
+  // 辅助文字
+  font-size: 12px;
+  color: $jdk-regular-text-color;
+}
+
+.jdk-line-height-middle {
+  line-height: 1.25;
+}
+
+.jdk-line-height-1 {
+  // 行高1,5
+  line-height: 1;
+}
+
+.jdk-line-height {
+  // 行高1,5
+  line-height: 1.5;
+}
+
+// 自定义tips类: normal灰色、primary淡蓝、success浅绿、danger红色、warning淡黄
+.jdk-normal-tips,
+.jdk-primary-tips,
+.jdk-success-tips,
+.jdk-danger-tips,
+.jdk-warning-tips {
+  display: inline-block;
+  font-size: 13px;
+  // height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+  padding: 0px 16px;
+  margin-left: 20px;
+  opacity: 0.9;
+}
+
+.jdk-normal-tips {
+  color: $jdk-regular-text-color;
+  background-color: $jdk-background-color;
+}
+
+.jdk-primary-tips {
+  color: $jdk-main-color;
+  background-color: rgba($jdk-main-color, 0.1);
+}
+
+.jdk-success-tips {
+  color: $jdk-success-color;
+  background-color: #e4efe9;
+}
+
+.jdk-danger-tips {
+  color: $jdk-danger-color;
+  background-color: #fceeed;
+}
+
+.jdk-warning-tips {
+  color: $jdk-warning-color;
+  background-color: #fef4e7;
+}
+
+.jdk-bold {
+  font-weight: bold;
+}
+
+// 定义全局滚动条样式
+.jdk-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &:hover::-webkit-scrollbar {
+    background-color: #fff;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: $jdk-line-color;
+  }
+}
+
+// 统一页面标题类(左侧带蓝色竖线的title) 粗体
+.jdk-page-title {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  color: $jdk-primary-text-color;
+  padding: 0;
+  margin: 0 0 20px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    line-height: 21px;
+    border-left: 2px solid $jdk-main-color; // 样式修改
+    padding-right: 10px;
+    margin: 0 0 -1px 0;
+  }
+}
+
+.page-title {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  color: $jdk-primary-text-color;
+  padding: 0;
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    line-height: 21px;
+    border-left: 2px solid $jdk-main-color; // 样式修改
+    padding-right: 10px;
+    margin: 0 0 -1px 0;
+  }
+}
+
+// 统一页面标题类(左侧带蓝色竖线的title) 正常
+.jdk-components-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: $jdk-primary-text-color;
+  padding: 0;
+  margin: 0 0 15px 0px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    border-left: 2px solid $jdk-main-color;
+    padding-right: 10px;
+    margin: 0 0 -1px 0;
+  }
+}
+
+// 统一页面标题类(左侧带蓝色竖线的title) 正常 弥补jdk-components-title margin-bottom问题
+.jdk-component-title {
+  line-height: 1;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: $jdk-primary-text-color;
+  padding: 0;
+  font-weight: 600;
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    border-left: 2px solid $jdk-main-color;
+    padding-right: 10px;
+    margin: 0 0 -1px 0;
+  }
+}
+
+// 全局自定义圆角
+.jdk-radius {
+  border-radius: 4px;
+}
+
+// 全局圆角
+.jdk-circle-radius {
+  border-radius: 50%;
+}
+
+// 修改全局iconfont字体颜色
+.iconfont {
+  color: $jdk-regular-text-color;
+  cursor: pointer;
+}
+
+.jdk-grey {
+  background-color: #dcdfe6;
+  color: #c0c4cc;
+}
+
+.jdk-bg-white {
+  background-color: white;
+}
+
+.jdk-bg-green {
+  background-color: $jdk-success-color;
+}
+
+.jdk-bg-warn {
+  background-color: $jdk-warning-color;
+}
+
+.jdk-bg-danger {
+  background-color: $jdk-danger-color;
+}
+
+.jdk-bg-success {
+  background-color: $jdk-main-color;
+}
+
+.jdk-color-white {
+  color: white;
+}
+
+// 链接的颜色
+.jdk-color-link {
+  color: $jdk-main-color;
+}
+
+.jdk-color-green {
+  color: $jdk-success-color;
+}
+
+.jdk-color-danger {
+  color: $jdk-danger-color;
+}
+
+.jdk-color-warn {
+  color: $jdk-warning-color;
+}
+
+.jdk-color-primary {
+  color: $jdk-main-color;
+}
+
+.jdk-color-success {
+  color: $jdk-success-color;
+}
+
+.jdk-color-grey {
+  color: $jdk-regular-text-color;
+}
+
+.jdk-color-common {
+  color: $jdk-primary-text-color;
+}
+
+.jdk-font-12 {
+  font-size: 12px;
+}
+
+.jdk-font-14 {
+  font-size: 14px !important;
+}
+
+.jdk-font-16 {
+  font-size: 16px;
+}
+
+.jdk-font-18 {
+  font-size: 18px;
+}
+
+.jdk-font-20 {
+  font-size: 20px;
+}
+
+.jdk-font-24 {
+  font-size: 24px !important;
+}
+
+.jdk-font-28 {
+  font-size: 28px !important;
+}
+
+.jdk-font-32 {
+  font-size: 32px !important;
+}
+// 手形鼠标
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// 文案防溢出
+.over-txt {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dialog-title {
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+}
+
+.dialog-footer {
+  padding-bottom: 20px;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.ql-formats {
+  margin-right: 12px !important;
+}
+
+// quill 富文本字体样式
+.ql-size-10 {
+  font-size: 10pt;
+}
+
+.ql-size-11 {
+  font-size: 11pt;
+}
+
+.ql-size-12 {
+  font-size: 12pt;
+}
+
+.ql-size-14 {
+  font-size: 14pt;
+}
+
+.ql-size-16 {
+  font-size: 16pt;
+}
+
+.ql-size-18 {
+  font-size: 18pt;
+}
+
+.ql-container {
+  white-space: pre-wrap !important;
+  font-size: 14px !important;
+}
+
+/*flex布局类*/
+//水平均分对齐
+.flexh-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexh-between-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+//水平对齐
+.flexh {
+  display: flex;
+}
+
+//垂直对齐
+.flexv {
+  @extend .flexh;
+  flex-direction: column;
+}
+
+//垂直对齐反转
+.flexv-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.flex0 {
+  flex: none;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+// 远端对齐
+.flex-between {
+  justify-content: space-between;
+}
+
+// 近端对齐
+.flex-around {
+  justify-content: space-around;
+}
+
+.flex-start {
+  align-items: flex-start;
+}
+
+.flex-hstart {
+  justify-content: flex-start;
+}
+
+// 多列 水平居中对齐
+.flex-vcenter {
+  align-items: center;
+}
+
+// 多行垂直居中对齐
+.flex-hcenter {
+  justify-content: center;
+}
+
+// 设置给子项，存在剩余空间，和其他子项按flex-grow值平分剩余空间 ， 0 为不放大
+.flex-grow {
+  flex-grow: 1;
+  /* default 0 */
+}
+
+.flex-stretch {
+  align-items: stretch;
+}
+
+.flex-vend {
+  align-items: flex-end;
+}
+
+.flex-vstart {
+  align-items: flex-start;
+}
+
+.flex-hend {
+  justify-content: flex-end;
+}
+
+.flex-self-start {
+  align-self: flex-start;
+}
+
+.flex-self-center {
+  align-self: center;
+}
+
+.flex-self-end {
+  align-self: flex-end;
+}
+
+/*flex换行*/
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// margin padding
+.MR10 {
+  margin-right: 10px;
+}
+
+.MR16 {
+  margin-right: 16px;
+}
+
+.MR24 {
+  margin-right: 24px;
+}
+
+.ML5 {
+  margin-left: 5px;
+}
+
+.ML8 {
+  margin-left: 8px;
+}
+
+.ML10 {
+  margin-left: 10px !important;
+}
+
+.ML15 {
+  margin-left: 15px;
+}
+
+.ML16 {
+  margin-left: 16px;
+}
+
+.MT5 {
+  margin-top: 5px;
+}
+
+.MT8 {
+  margin-top: 8px;
+}
+
+.MT10 {
+  margin-top: 10px;
+}
+.MT12 {
+  margin-top: 12px;
+}
+
+.MB4 {
+  margin-bottom: 4px;
+}
+.MB10 {
+  margin-bottom: 10px;
+}
+.MB12 {
+  margin-bottom: 12px;
+}
+
+.MB5 {
+  margin-bottom: 5px;
+}
+
+.MB8 {
+  margin-bottom: 8px !important;
+}
+
+.MB24 {
+  margin-bottom: 24px;
+}
+
+.MB30 {
+  margin-bottom: 30px;
+}
+
+.MB40 {
+  margin-bottom: 40px;
+}
+
+.MB60 {
+  margin-bottom: 60px;
+}
+
+.MB15 {
+  margin-bottom: 15px;
+}
+
+.MB16 {
+  margin-bottom: 16px;
+}
+
+.MR5 {
+  margin-right: 5px;
+}
+
+.MR8 {
+  margin-right: 8px !important;
+}
+
+.MR20 {
+  margin-right: 20px !important;
+}
+
+.MR30 {
+  margin-right: 30px;
+}
+.MR40 {
+  margin-right: 40px;
+}
+
+.MR32 {
+  margin-right: 32px;
+}
+
+.MR48 {
+  margin-right: 48px;
+}
+.MR50 {
+  margin-right: 50px;
+}
+.MR64 {
+  margin-right: 64px;
+}
+.ML6 {
+  margin-left: 6px;
+}
+.ML20 {
+  margin-left: 20px;
+}
+
+.ML24 {
+  margin-left: 24px;
+}
+
+.ML26 {
+  margin-left: 26px;
+}
+
+.ML30 {
+  margin-left: 30px;
+}
+.ML32 {
+  margin-left: 32px;
+}
+.ML40 {
+  margin-left: 40px;
+}
+
+.ML70 {
+  margin-left: 70px;
+}
+
+.MT16 {
+  margin-top: 16px !important;
+}
+
+.MT18 {
+  margin-top: 18px;
+}
+
+.MT20 {
+  margin-top: 20px;
+}
+
+.MT24 {
+  margin-top: 24px;
+}
+
+.MT30 {
+  margin-top: 30px;
+}
+
+.MT32 {
+  margin-top: 32px;
+}
+
+.MB32 {
+  margin-bottom: 32px;
+}
+
+.MT4 {
+  margin-top: 4px;
+}
+.MT40 {
+  margin-top: 40px;
+}
+
+.MB20 {
+  margin-bottom: 20px;
+}
+
+.MV5 {
+  margin: 5px 0;
+}
+
+.MV10 {
+  margin: 10px 0;
+}
+
+.MV20 {
+  margin: 20px 0;
+}
+
+.MH8 {
+  margin: 0 8px;
+}
+
+.MH10 {
+  margin: 0 10px;
+}
+
+.MH20 {
+  margin: 0 20px;
+}
+
+.M10 {
+  margin: 10px 10px;
+}
+
+.PV10 {
+  padding: 10px 0;
+}
+
+.PH10 {
+  padding: 0 10px;
+}
+
+.PT10 {
+  padding-top: 10px;
+}
+
+.PT16 {
+  padding-top: 16px !important;
+}
+
+.PR10 {
+  padding-right: 10px;
+}
+
+.PB10 {
+  padding-bottom: 10px;
+}
+
+.PL10 {
+  padding-left: 10px;
+}
+
+.PV16 {
+  padding: 16px 0;
+}
+
+.PV20 {
+  padding: 20px 0;
+}
+
+.PV24 {
+  padding: 24px 0;
+}
+
+.PS16 {
+  padding: 16px !important;
+}
+
+.PS20 {
+  padding: 20px !important;
+}
+
+.PB24 {
+  padding-bottom: 24px;
+}
+
+.PS24 {
+  padding: 24px;
+}
+
+.PH20 {
+  padding: 0 20px;
+}
+
+.PH24 {
+  padding: 0 24px;
+}
+
+.PH40 {
+  padding: 0 40px;
+}
+
+.PT20 {
+  padding-top: 20px;
+}
+
+.PR20 {
+  padding-right: 20px;
+}
+
+.PR88 {
+  padding-right: 88px !important;
+}
+
+.PB16 {
+  padding-bottom: 16px;
+}
+
+.PB20 {
+  padding-bottom: 20px;
+}
+
+.PB40 {
+  padding-bottom: 40px !important;
+}
+
+.PL20 {
+  padding-left: 20px;
+}
+
+.PL24 {
+  padding-left: 24px;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 限制 tooltip 的 宽度 */
+.limit-tooltip-width {
+  max-width: 400px;
+}
+
+.text-tooltip-width {
+  max-width: 300px;
+}
+
+/* 自定义 数字输入框 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.jdk-input {
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+  color: $jdk-regular-text-color;
+  display: inline-block;
+  font-size: inherit;
+  height: 32px;
+  line-height: 32px;
+  outline: none;
+  padding: 0 15px;
+  width: 100%;
+}
+
+/* 对话气泡 */
+.jdk-bubble {
+  font-size: 14px;
+  color: $jdk-regular-text-color;
+  max-height: 40px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: relative;
+  border-radius: 4px;
+  padding: 0 15px;
+  border: 1px solid $jdk-line-color;
+
+  /* 实心三角 before 在前，after在后 */
+  &::before,
+  &::after {
+    width: 0;
+    height: 0;
+    top: 8px;
+    right: -20px;
+    position: absolute;
+    content: ' ';
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent $jdk-line-color;
+  }
+
+  /* 空心三角 */
+  &::after {
+    z-index: 1;
+    right: -19px;
+    border-color: transparent transparent transparent #ffffff;
+  }
+}
+
+.vertical-middle {
+  vertical-align: middle;
+}
+
+/* 头像 通用样式 */
+.jdk-avatar {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+
+.jdk-avatar-48 {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+}
+
+/* 换行 */
+.break-all {
+  word-break: break-all;
+}
+
+// 单词不换行
+.break-word {
+  word-break: break-word;
+}
+
+// 文本省略号
+.jdk-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//多行省略号
+.jdk-ellipsis-multi-line {
+  @include multi-ellipsis;
+}
+
+// 文本省略号
+.jdk-wrap {
+  white-space: normal;
+}
+
+// a标签用，伪装成ele按钮
+.jdk-fake-btn {
+  font-size: 12px;
+  display: inline-block;
+  text-align: center;
+  padding: 0 15px;
+  line-height: 38px;
+  border: 1px solid #b1cbfe;
+  border-radius: 4px;
+  color: $jdk-main-color;
+  cursor: pointer;
+
+  &:hover {
+    background: $jdk-main-color;
+    border-color: $jdk-main-color;
+    color: #fff;
+  }
+}
+
+.jdk-fake-btn + .jdk-fake-btn,
+.jdk-fake-btn + .el-button,
+.el-button + .jdk-fake-btn {
+  margin-left: 16px;
+}
+
+.border-color {
+  border-color: $jdk-line-color;
+}
+
+// 蓝色斑点边框
+.jdk-dotted-border {
+  border: 1px dotted $jdk-main-color !important;
+}
+
+.jdk-solid-border {
+  border: 1px solid $jdk-main-color !important;
+}
+
+.jdk-dotted-border-ccc {
+  border: 1px dotted $jdk-line-color !important;
+}
+
+.jdk-top-border {
+  border-top: 1px solid $jdk-line-color !important;
+}
+
+.jdk-bottom-border {
+  border-bottom: 1px solid $jdk-line-color !important;
+}
+
+// 使用于table 带多选框
+.no-padding-left {
+  .cell {
+    padding-left: 0 !important;
+  }
+}
+
+/* draggable 拖拽效果 */
+.ghost {
+  opacity: 0.5;
+  background: $jdk-success-color;
+}
+
+// 修改element table 原生样式
+.el-table .cell,
+.el-table th > .cell,
+.el-table th div,
+.el-table--border td:first-child .cell,
+.el-table--border th:first-child .cell {
+  padding-left: 16px;
+}
+
+// 但不包括多选框
+.el-table-column--selection .cell {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+/* 输入框 */
+.jdk-search-input {
+  width: 240px !important;
+}
+
+/* 输入框 */
+.jdk-select-input {
+  width: 150px;
+}
+
+.jdk-input-320 {
+  width: 320px;
+}
+.jdk-input-160 {
+  width: 160px;
+}
+/* 录音组件全局样式 */
+.dialog-material-record {
+  .el-dialog__body {
+    padding: 0;
+  }
+
+  .el-dialog {
+    margin-right: 10px;
+  }
+}
+
+/* 勾选和取消图标统一样式 */
+.operation-icon {
+  .el-icon-circle-check {
+    color: $jdk-main-color;
+  }
+
+  .el-icon-circle-check,
+  .el-icon-circle-close {
+    font-size: 18px;
+    margin-left: 8px;
+  }
+}
+
+/* 主题和素材中心音频头像 */
+.head-image-box {
+  width: 124px;
+  height: 124px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .head-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+/* 评测正确错误信息 */
+.word-standard-1 {
+  color: $jdk-danger-color;
+}
+
+.word-standard-2 {
+  color: $jdk-primary-text-color;
+}
+
+.word-standard-3 {
+  color: $jdk-success-color;
+}
+
+@media (min-width: 1080px) {
+  .theme-title {
+    max-width: 160px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .theme-title {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 1550px) {
+  .theme-title {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1750px) {
+  .theme-title {
+    max-width: 550px;
+  }
+}
+
+/*清除浮动*/
+.clearfix:after {
+  height: 0;
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* 课程详情 无列表无权限样式 */
+.base-version {
+  position: relative;
+  height: 500px;
+  background: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* 固定在底部的保存按钮，下一步按钮 */
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 200px;
+  right: 0;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #fff;
+  z-index: 10;
+  @extend .jdk-top-border;
+}
+
+/* 收起的偏移 */
+.collapse {
+  left: 58px;
+}
+
+.hide {
+  display: none;
+}
+
+/* 视频播放预览 */
+.video-pay {
+  .el-dialog__header {
+    padding: 0;
+  }
+
+  .el-dialog__body {
+    padding: 5px 5px 0 5px;
+    max-height: 560px;
+  }
+
+  .item-video {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+.jdk-tip {
+  &__container {
+    background-color: #fdf6ec;
+    color: $jdk-warning-color;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+
+    i {
+      margin-right: 6px;
+    }
+  }
+}
+
+/*  处理 xss 用户输入html pre + 样式*/
+.deal-xss {
+  margin: 0;
+  padding: 0 !important;
+  line-height: 1.25 !important;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+#udesk_btn {
+  a {
+    display: block !important;
+    z-index: 1000 !important;
+    top: 3px !important;
+    right: 20px !important;
+    left: auto !important;
+
+    // width: 40px!important;
+    // height: 40px!important;
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}
+
+// 表格中的链接,多用于覆盖el-button 为text的样式
+.table-link {
+  font-weight: 400;
+  font-size: 14px;
+  color: $jdk-main-color;
+}
+
+.el-button--text {
+  font-weight: 400 !important;
+}
+
+.jdk-button-outline {
+  color: $jdk-main-color;
+  border-color: $jdk-main-color;
+}
+/* 点评框定位 */
+.pop-box {
+  position: absolute;
+  z-index: 100;
+}
+
+.comments-box {
+  margin-left: 64px;
+}
+
+::-webkit-input-placeholder {
+  color: $jdk-regular-text-color;
+}
+
+/* 富文本 ul，ol 列表样式 */
+.ql-editor ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9 !important;
+  counter-increment: list-0 !important;
+}
+.ql-editor ol li:before {
+  content: counter(list-0, decimal) '. ' !important;
+}
+.ql-editor{
+  img {
+    max-width: 100%;
+  }
+}
+
+
+// 的圆点
+.dialog-line-radio {
+  position: relative;
+  padding-left: 15px;
+  &:before {
+    content: ' ';
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background: #e4e8f0;
+  }
+}
+/*  示例图共用样式 */
+.sample-img {
+  width: 320px;
+  height: 569px;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+.reset-search-icon {
+  cursor: pointer;
+}
+.line-through {
+  text-decoration: line-through;
+}
+// 评测提示全局
+.eval-category-popover{
+  box-sizing: border-box;
+  padding: 8px;
+  background: #354369;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 20px;
+  .popper__arrow{
+    display: none;
+  }
+}

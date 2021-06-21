@@ -1,0 +1,350 @@
+/*
+ * Date: 2018-09-26 11:41:45
+ * Desc: 重置ElementUI样式
+ */
+@import './_var.scss'; // 要使用common定义的样式变量
+
+$--font-path: '~element-plus/lib/theme-chalk/fonts';
+
+// @import "～element-plus/packages/theme-chalk/src/index";
+@import "node_modules/element-plus/packages/theme-chalk/src/index";
+
+
+.el-button--primary.is-plain {
+  background-color: #fff !important;
+  border-color: $jdk-main-color;
+  &:hover,
+  &:focus {
+    background: $jdk-main-color !important;
+  }
+}
+
+.el-button--danger.is-plain {
+  background-color: #fff !important;
+  &:hover,
+  &:focus {
+    background: $jdk-danger-color !important;
+  }
+}
+
+// 修改全局表格td高度
+.el-table td,
+.el-table th {
+  .el-button {
+    padding: 0;
+  }
+}
+
+.table-width {
+  width: calc(100% - 24px);
+  margin: 0 24px;
+}
+
+.table-header-cell {
+  background-color: #fafafa !important;
+}
+
+// 重置全局el-dialog圆角
+.el-dialog {
+  border-radius: 4px;
+}
+
+// 给全局table表头添加border
+.header-no-top-border {
+  border-top: none;
+}
+
+.el-tabs__header {
+  .el-tabs__nav {
+    left: 24px;
+
+    .el-tabs__item {
+      height: 48px;
+      line-height: 48px;
+    }
+  }
+}
+
+.column-el-tabs {
+  .el-tabs__nav {
+    left: 0;
+  }
+}
+
+// 重置全局el-form表单样式，特殊情况需要超过800px,在组件重置el-form宽度
+.el-form {
+  .el-form-item__label {
+    color: $jdk-primary-text-color;
+  }
+}
+
+.el-form-item {
+  margin-bottom: 24px;
+}
+
+.el-form-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 表单中竖向排列的单选按钮 */
+.radio-column {
+  .el-radio {
+    display: block;
+    margin: 0;
+    line-height: 40px;
+  }
+
+  .el-radio:last-child {
+    margin: 0;
+  }
+}
+
+.el-radio__input.is-checked + .el-radio__label {
+  color: inherit;
+}
+
+.el-input--suffix .el-input__inner {
+  padding-right: 15px;
+}
+
+// 修改素材中心的el-checkbox颜色
+.jdk-delete-mask .el-checkbox__inner {
+  // border: 1px solid #fff;
+  background: rgba(0, 0, 0, 0.3);
+  width: 18px;
+  height: 18px;
+}
+
+.jdk-delete-mask .el-checkbox__inner::after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  content: '';
+  // border: 1px solid #fff;
+  border-left: 0;
+  border-top: 0;
+  height: 9px;
+  left: 6px;
+  position: absolute;
+  top: 1px;
+  -webkit-transform: rotate(45deg) scaleY(0);
+  transform: rotate(45deg) scaleY(0);
+  width: 4px;
+  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
+  transition: -webkit-transform 0.15s ease-in 0.05s;
+  transition: transform 0.15s ease-in 0.05s;
+  transition: transform 0.15s ease-in 0.05s, -webkit-transform 0.15s ease-in 0.05s;
+  transition: transform 0.15s ease-in 0.05s, -webkit-transform 0.15s ease-in 0.05s;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
+// 修改拖拽上传样式
+.jdk-drag-upload .el-upload {
+  display: block;
+
+  .el-upload-dragger {
+    width: 100%;
+    height: calc(100vh - 390px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.jdk-dialog {
+  .el-dialog--center .el-dialog__body {
+    padding: 0 24px 24px;
+  }
+  .el-dialog__body {
+    padding: 0 24px 24px;
+  }
+}
+
+.el-dialog__header {
+  text-align: center;
+  border: none;
+  padding-bottom: 15px;
+}
+
+// 重置全局el-dialog el-dialog__body padding
+.el-dialog--center .el-dialog__body {
+  padding: 0 24px;
+}
+
+.el-dialog__body {
+  padding: 0 24px;
+}
+
+.jdk-maxim-dialog .el-dialog {
+  width: 790px;
+}
+
+// 日签图库单选样式
+.jdk-pictureLib .el-radio__label {
+  display: none;
+}
+
+.input-with-select .el-input-group__prepend,
+.input-with-select .el-input-group__append {
+  background-color: #fff;
+}
+
+/*文本pre显示*/
+.content-pro {
+  white-space: pre-wrap;
+}
+
+// 分页样式
+.el-pagination {
+  padding: 16px 0;
+}
+
+// tabs 样式
+.el-tabs__header {
+  margin: 0 0 24px !important;
+}
+
+// 滚动条样式
+.el-table__body-wrapper {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 14px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #ddd;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: block;
+    width: 1px;
+    height: 1px;
+  }
+
+  &.auto-hide::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: transparent;
+  }
+
+  &.auto-hide {
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: #c3c3c3;
+    }
+
+    &:hover::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+.el-button {
+  font-weight: normal;
+}
+
+.el-button + .el-button {
+  margin-left: 16px;
+}
+
+.el-popover__title {
+  text-align: center;
+}
+
+// tooltip 提示框样式
+.jdk-tooltip {
+  padding: 0 !important;
+}
+
+.el-tooltip__popper,
+.el-dropdown-menu {
+  z-index: 10000 !important;
+}
+
+/* el-checkbox 字体颜色 为 黑*/
+.el-checkbox__label {
+  color: $jdk-primary-text-color !important;
+}
+
+/* dialog 层级导致的可点击热区过小*/
+.el-dialog__headerbtn {
+  z-index: 10000;
+}
+
+.el-dialog__footer {
+  padding-bottom: 24px;
+  padding-top: 24px;
+}
+
+/* message弹窗自动对齐 */
+.el-message-custom {
+  .el-message-box__message {
+    text-align: justify;
+  }
+}
+
+.el-tabs__nav-prev,
+.el-tabs__nav-next {
+  z-index: 3;
+}
+
+.announcement-dialog {
+  width: 500px;
+}
+
+.ql-container .ql-editor {
+  max-height: 520px;
+}
+
+.ql-editor {
+  white-space: pre-wrap !important;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &:hover::-webkit-scrollbar {
+    background-color: #fff;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: $jdk-line-color;
+  }
+}
+
+.rich-txt-image {
+  max-width: 100%;
+}
+
+.el-alert__description {
+  margin: 0 !important;
+}
+
+.answer-module.el-select,
+.primary-select.el-select {
+  .el-tag.el-tag--info {
+    border-radius: 3px;
+    background-color: rgba(236, 242, 255, 1);
+    border-color: none;
+    color: #3d7dfd;
+  }
+  .el-tag.el-tag--info .el-tag__close {
+    color: #fff;
+  }
+  .el-tag__close.el-icon-close {
+    background-color: #3d7dfd;
+  }
+}
+
+// 修复 safari radio-button box-show样式问题
+.el-radio-button:focus:not(.is-focus):not(:active):not(.is-disabled):focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

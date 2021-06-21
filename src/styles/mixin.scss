@@ -1,0 +1,57 @@
+@mixin fullPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+//定位上下左右居中
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//定位上下居中 vertical-center
+@mixin vc($left: 0) {
+  position: absolute;
+  top: 50%;
+  transform: translate($left, -50%);
+}
+
+//定位左右居中 horizontal-center
+@mixin hc($top: 0) {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, $top);
+}
+
+//省略号
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//多行省略号
+@mixin multi-ellipsis($lines: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
+
+//背景透明
+@mixin bg_color_opacity($color, $alpha) {
+  background-color: rgba($color: $color, $alpha: $alpha);
+}
+
+// 通用面板
+@mixin common-card() {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 24px;
+}
